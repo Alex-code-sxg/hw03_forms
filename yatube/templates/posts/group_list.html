@@ -8,7 +8,7 @@
       {{ group.description|linebreaksbr }}
     </p>
   {% for post in page_obj %}
-    {% include 'includes/post.html' with PRINT_URL=True %}
+    {% include 'includes/post.html'%}
   {% endfor %}
   {% include 'includes/paginator.html' %}
 </div>

@@ -10,8 +10,8 @@
   <p>{{ post.text|linebreaksbr }}</p>    
   {% if post.group and PRINT_URL %}   
     <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
-    {% endif %}
-    <br>
-    <a href="{% url 'posts:post_detail' post.pk %}">подробная информация </a>
+  {% endif %}
+  <br>
+  <a href="{% url 'posts:post_detail' post.pk %}">подробная информация </a>
 </article>
 {% if not forloop.last %}<hr>{% endif %}

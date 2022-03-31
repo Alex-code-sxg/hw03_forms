@@ -22,7 +22,8 @@ class Post(models.Model):
     text = models.TextField(verbose_name='Текст поста')
     pub_date = models.DateTimeField(
         verbose_name='Дата публикации',
-        auto_now_add=True
+        auto_now_add=True,
+        help_text='Введите текст поста'
     )
     author = models.ForeignKey(
         User,
@@ -36,7 +37,8 @@ class Post(models.Model):
         blank=True,
         null=True,
         on_delete=models.SET_NULL,
-        related_name='posts'
+        related_name='posts',
+        help_text='Группа, к которой будет относиться пост'
     )
 
     def __str__(self):

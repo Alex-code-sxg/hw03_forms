@@ -39,7 +39,7 @@ def group_posts(request, slug):
 
 def profile(request, username):
     author = get_object_or_404(User, username=username)
-    post = author.posts.select_related('author').filter(author=author.id).all()
+    post = author.posts.select_related('author').all()
     paginator = Paginator(post, AMOUNT_POSTS)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -78,7 +78,6 @@ def post_edit(request, post_id):
         return redirect('posts:post_detail', post.id)
     form = PostForm(request.POST or None, instance=post)
     if form.is_valid():
-        post.author = request.user
         post.save()
         return redirect('posts:post_detail', post.id)
     context = {
