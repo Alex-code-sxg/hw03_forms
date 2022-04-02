@@ -1,6 +1,6 @@
 <article>
   <ul>
-    {% if post.group and PRINT_URL %}
+    {% if not PRINT_WHITHOUT_AUTHOR %}
     <li>
       Автор: {{ post.author.get_full_name }} <a href="{% url 'posts:profile' post.author.username %}">все посты пользователя</a>
     </li>
